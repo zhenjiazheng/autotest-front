@@ -1,0 +1,45 @@
+{{#withSeparateModelsAndApi}}
+/* tslint:disable */
+/* eslint-disable */
+{{>licenseInfo}}
+
+import { GET, POST } from '{{apiRelativeToRoot}}base';
+
+{{#imports}}
+// @ts-ignore
+import type { {{classname}} } from '{{apiRelativeToRoot}}{{tsModelPackage}}';
+{{/imports}}
+{{/withSeparateModelsAndApi}}
+{{^withSeparateModelsAndApi}}
+{{/withSeparateModelsAndApi}}
+
+{{#operations}}
+{{#operation}}
+/**
+ * {{&notes}}
+ {{#summary}}
+ * @summary {{&summary}}
+ {{/summary}}
+ {{#tags}}
+ * @tags {{&name}}
+ {{/tags}}
+ {{#allParams}}
+ * @param {{=<% %>=}}{<%#isEnum%><%&datatypeWithEnum%><%/isEnum%><%^isEnum%><%&dataType%><%#isNullable%> | null<%/isNullable%><%/isEnum%>}<%={{ }}=%> {{^required}}[{{/required}}{{paramName}}{{^required}}]{{/required}} {{description}}
+ {{/allParams}} {{#isDeprecated}}
+ * @deprecated{{/isDeprecated}}
+ * @return { {{returnType}} }
+ */
+export function {{operationId}}({{#hasParams}}data:{{^bodyParam}}{ {{/bodyParam}}{{/hasParams}}{{#allParams}}{{#isQueryParam}}{{paramName}}{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{#isNullable}} | null{{/isNullable}}{{/isEnum}}; {{/isQueryParam}}{{#isBodyParam}}{{{dataType}}}{{/isBodyParam}}{{/allParams}}{{^bodyParam}}{{#hasParams}}}{{/hasParams}}{{/bodyParam}}): Promise<{{#returnType}}{{returnType}}['data']{{/returnType}}{{^returnType}}any{{/returnType}}> {
+    const path = `{{{path}}}`{{#pathParams}}.replace(`{${"{{baseName}}"}}`, encodeURIComponent(String({{paramName}}))){{/pathParams}};
+
+    let localVarQueryParameter = { params: {{#hasParams}}data{{/hasParams}}{{^hasParams}}{}{{/hasParams}} } as any;
+
+    {{#bodyParam}}
+    localVarQueryParameter = data;
+    {{/bodyParam}}
+
+    return {{httpMethod}}(path, localVarQueryParameter);
+}
+
+{{/operation}}
+{{/operations}}

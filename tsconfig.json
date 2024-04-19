@@ -1,0 +1,17 @@
+{
+    // 指定哪些文件需要编译，可以添加一组文件路径，支持相对路径和绝对路径
+    "files": [],
+
+    // 启用项目引用，与 compilerOptions.composite 结合使用
+    "references": [
+        {
+        "path": "./tsconfig.app.json"
+        },
+        {
+        "path": "./tsconfig.node.json"
+        },
+        {
+        "path": "./tsconfig.vitest.json"
+        }
+    ]
+}

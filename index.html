@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>ZeTian</title>
+    <!-- luckysheet -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/css/pluginsCss.css' />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/plugins.css' />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/luckysheet/dist/css/luckysheet.css' />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/luckysheet/dist/assets/iconfont/iconfont.css' />
+    <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/plugins/js/plugin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luckysheet/dist/luckysheet.umd.js"></script>
+    <style>
+        .app-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: flex;
+            -webkit-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .app-loading-title {
+            display: flex;
+            margin-top: 30px;
+            font-size: 30px;
+            color: #252933;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="app-loading">
+            <img src="./svg/loading.svg" alt="页面正在加载..." />
+            <div class="app-loading-title">Loading</div>
+        </div>
+    </div>
+    <script type="module" src="./src/main.ts"></script>
+</body>
+
+</html>

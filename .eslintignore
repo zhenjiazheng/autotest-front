@@ -1,0 +1,9 @@
+**/auto-imports.d.ts
+**/components.d.ts
+*.d.ts
+
+dist
+node_modules
+assets
+unpackage
+

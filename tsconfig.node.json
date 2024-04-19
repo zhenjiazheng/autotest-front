@@ -1,0 +1,26 @@
+/**
+ * tsconfig.node.json 是用于 Node.js 的配置文件
+ */
+{
+    // extends 属性可以从另一个配置文件里继承配置
+    "extends": "@tsconfig/node18/tsconfig.json",
+
+    "include": [
+        "vite.config.*",
+        "vitest.config.*",
+    ],
+
+    "exclude": [],
+
+    // 编译选项
+    "compilerOptions": {
+        // 启用项目编译
+        "composite": true,
+        // 指定生成哪个模块系统代码
+        "module": "ESNext",
+        // 决定如何处理模块 'Classic' | 'Node' | 'bundler'
+        "moduleResolution": "bundler",
+        // 默认所有可见的 "@types" 包会在编译过程中被包含进来，若指定了 types，只有被列出来的包才会被包含进来
+        "types": ["node"]
+    }
+}
